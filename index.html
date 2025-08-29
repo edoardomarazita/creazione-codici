@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calcolatrice di Base</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input { width: 80px; padding: 5px; }
+    button { margin: 5px; padding: 5px 10px; }
+    #result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Calcolatrice</h1>
+  <input type="number" id="num1" placeholder="Numero 1" />
+  <input type="number" id="num2" placeholder="Numero 2" />
+  <div>
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('subtract')">-</button>
+    <button onclick="calculate('multiply')">&times;</button>
+    <button onclick="calculate('divide')">&divide;</button>
+  </div>
+  <div id="result"></div>
+  <script>
+    function calculate(op) {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+      if (isNaN(n1) || isNaN(n2)) {
+        document.getElementById('result').textContent = 'Inserisci due numeri validi';
+        return;
+      }
+      let res;
+      switch (op) {
+        case 'add':
+          res = n1 + n2;
+          break;
+        case 'subtract':
+          res = n1 - n2;
+          break;
+        case 'multiply':
+          res = n1 * n2;
+          break;
+        case 'divide':
+          if (n2 === 0) {
+            document.getElementById('result').textContent = 'Divisione per zero non consentita';
+            return;
+          }
+          res = n1 / n2;
+          break;
+        default:
+          res = 'Operazione non supportata';
+      }
+      document.getElementById('result').textContent = 'Risultato: ' + res;
+    }
+  </script>
+</body>
+</html>
