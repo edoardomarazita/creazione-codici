@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#toolbar {
+  background: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+#toolbar button {
+  padding: 8px 12px;
+  border: none;
+  background: #555;
+  color: white;
+  cursor: pointer;
+}
+
+#toolbar button:hover {
+  background: #777;
+}
+
+#board {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.post-it {
+  position: absolute;
+  width: 200px;
+  min-height: 150px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  cursor: move;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-it .content {
+  flex: 1;
+  padding: 5px;
+  overflow: auto;
+}
+
+.post-it input[type="date"] {
+  margin-top: 5px;
+}
+
+#flow {
+  padding: 10px;
+  background: white;
+}
+
+.hidden {
+  display: none;
+}
